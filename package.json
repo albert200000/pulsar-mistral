@@ -1,0 +1,30 @@
+{
+  "name": "mistral",
+  "main": "./lib/mistral",
+  "version": "0.0.0",
+  "description": "Chat with Mistral",
+  "keywords": [
+    "AI",
+    "LLM",
+    "Mistral"
+  ],
+  "activationCommands": {
+    "atom-workspace": "mistral:toggle"
+  },
+  "repository": "https://github.com/albert200000/pulsar-mistral",
+  "license": "GPL-3.0-or-later",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "@mistralai/mistralai": "^1.14.0",
+    "atom-ide-markdown-service": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.3.0",
+    "prettier": "^3.8.1"
+  }
+}

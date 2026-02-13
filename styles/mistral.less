@@ -1,0 +1,275 @@
+@import "ui-variables";
+@import "syntax-variables";
+
+// Define your variables here
+@chat-padding-h: 10px;
+@chat-padding-v: 5px; // Increased vertical padding for better visibility
+@chat-max-height: 15em;
+@input-text-color: @text-color;
+@message-border-color: darken(@syntax-background-color, 10%); // for border around messages
+@secondary-background-color: lighten(@tool-panel-background-color, 5%); // Lighten the tool-panel color for the input background
+@input-border-radius: @component-border-radius; // Use the border-radius from ui-variables
+@input-border-color: fade(@text-color, 20%); // Less sharp black border
+
+.font-common() {
+  font-size: @font-size;
+  font-family: @font-family;
+  line-height: @component-line-height;
+}
+
+.mistral-pane-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: @tool-panel-background-color;
+  color: @text-color;
+  .font-common();
+}
+
+.mistral-messages-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100% - 60px); // adjust the max-height accordingly
+  padding: @chat-padding-v @chat-padding-h;
+  background: @syntax-background-color;
+}
+
+// Message style
+.chat-message {
+  padding-right: 30px;
+  position: relative;
+  border: 1px solid @message-border-color;
+  margin-bottom: @chat-padding-v; // Add spacing between messages
+  padding: @chat-padding-v @chat-padding-h; // Add padding inside the messages
+  padding-left: 60px;
+  border-radius: @input-border-radius; // Rounded corners for messages
+
+  // Pseudo-element for the sender label
+  &::before {
+    content: attr(data-sender) ": ";
+    position: absolute;
+    top: 50%;
+    left: 5px; // Adjust left position to fit within the padding area
+    transform: translateY(-50%);
+    color: @text-color-subtle;
+    font-weight: bold;
+    min-width: 50px; // Ensure a minimum width for the label
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+pre {
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+// Style the code tag to ensure it doesn't overlap the copy button or language label
+code {
+  display: block;
+  background: darken(@syntax-background-color, 30%); // Match the code-container background
+  padding: @chat-padding-v @chat-padding-h;
+  margin: 0;
+  border-radius: 0 0 @input-border-radius @input-border-radius; // Rounded corners at the bottom
+  font-family: monospace;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.code-copy-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background: darken(@syntax-background-color, 20%); // Dark background for the copy container
+  border-top-left-radius: @input-border-radius;
+  border-top-right-radius: @input-border-radius;
+  border-bottom: 1px solid @message-border-color; // Add a border to separate from the code block
+}
+
+.code-container {
+  position: relative;
+  background: darken(@syntax-background-color, 30%); // Ensure this is darker than the chat background
+  border-radius: @input-border-radius;
+  margin-bottom: 10px;
+  padding-top: 1px; // Set padding-top to 1px to account for the top border of the code-copy-container
+}
+
+.code-language-label {
+  // Ensure the language label doesn't overlap the code
+  background: darken(@syntax-background-color, 20%);
+  color: lighten(@text-color, 50%);
+  font-size: smaller;
+  padding: 2px @chat-padding-h;
+  border-radius: 3px 3px 0 0; // Rounded corners for the top bar
+  user-select: none;
+  align-self: flex-start; // Align to the start of the flex container
+}
+
+.copy-code-button {
+  // Adjust the button styling
+  background: @button-background-color; // Add a background color to the button
+  color: @text-color;
+  border: none;
+  padding: 2px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  align-self: flex-start; // Align to the start of the flex container
+  &:hover {
+    background-color: darken(@button-background-color, 10%);
+  }
+}
+
+.user-message::before {
+  content: "You: ";
+}
+
+.mistral-message::before {
+  content: "mistral: ";
+}
+
+.mistral-input-container {
+  display: flex;
+  justify-content: space-between; // Adjust this as needed
+  background: @input-background-color; // Make the input container stand out
+  padding: @chat-padding-v;
+  border-top: 1px solid @message-border-color; // Separate messages from input
+}
+
+
+
+.mistral-input-area {
+  height: 150px; /* Fixed height */
+  overflow-y: auto; /* Enable vertical scrollbar */
+  flex: 1; // Take up available space
+  background: @secondary-background-color; // Ensure visibility
+  color: @input-text-color;
+  border: 1px solid @input-border-color; // Softer black border
+  padding: @chat-padding-v @chat-padding-h;
+  resize: none; // Remove resize handle
+  line-height: @component-line-height;
+  min-height: 50px; // Minimum height
+  border-radius: @input-border-radius; // Rounded corners for input
+  &:focus {
+    border-color: darken(@input-border-color, 10%); // Darken border on focus
+  }
+}
+
+.mistral-send-btn {
+  flex: none;
+  width: 50px;
+  background-color: @button-background-color;
+  color: @text-color;
+  border: none;
+  padding: @chat-padding-v @chat-padding-h;
+  cursor: pointer;
+  border-radius: @input-border-radius; // Rounded corners for button
+  &:hover {
+    background-color: @button-background-color-hover;
+  }
+}
+
+.mistral-clear-chat-btn {
+  margin-left: 10px; // Spacing from the send button
+  flex: none;
+  background-color: @button-background-color;
+  color: @text-color;
+  border: none;
+  padding: @chat-padding-v @chat-padding-h;
+  cursor: pointer;
+  border-radius: @input-border-radius;
+  &:hover {
+    background-color: darken(@button-background-color-hover, 10%);
+  }
+}
+
+// Modal overlay styling
+.mistral-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: @background-color-highlight; // Use Atom's background highlight variable
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+// Modal content styling
+.mistral-modal-content {
+  background-color: @pane-item-background-color; // Use Atom's pane item background variable
+  border: 1px solid @pane-item-border-color; // Use Atom's pane item border variable
+  border-radius: @component-border-radius; // Use Atom's border-radius variable
+  padding: @component-padding; // Use Atom's component padding variable
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); // Add a subtle shadow for depth
+  width: auto; // Adjust width as necessary
+  max-width: 400px; // Maximum width of the modal
+}
+
+// Button styling within modal
+.mistral-modal-content > button {
+  background-color: @button-background-color; // Use Atom's button background variable
+  color: @text-color; // Use Atom's text color variable
+  padding: @component-padding; // Use Atom's component padding variable
+  margin: 8px 0; // Provide some spacing between buttons
+  border: none;
+  border-radius: @component-border-radius; // Use Atom's border-radius variable
+  cursor: pointer;
+  &:hover {
+    background-color: @button-background-color-hover; // Use Atom's button hover background variable
+  }
+}
+
+// Close button specific styling
+.mistral-modal-close-btn {
+  align-self: flex-end; // Position the close button at the end of the modal
+  margin-top: -@component-padding; // Adjust margin to align with the modal's edge
+  margin-right: -@component-padding; // Adjust margin to align with the modal's edge
+  background-color: @background-color-error; // Use Atom's error color variable for close button
+  color: @base-background-color; // Contrasting text color for the close button
+  &:hover {
+    background-color: darken(@background-color-error, 10%); // Darken the hover state for contrast
+  }
+}
+
+// Apply common font styles to buttons
+.mistral-modal-content > button,
+.mistral-modal-close-btn {
+  .font-common(); // Mixin to apply common font styles
+}
+
+// Options Button Styling
+.mistral-options-btn {
+  padding: @component-padding; // Consistent padding with other components
+  background-color: @button-background-color; // Base button color from UI variables
+  color: @text-color; // Text color from UI variables
+  border: 1px solid @button-border-color; // Border color from UI variables
+  border-radius: @component-border-radius; // Border radius from UI variables
+  cursor: pointer;
+  font-size: @font-size; // Font size from UI variables
+  font-family: @font-family; // Font family from UI variables
+  line-height: @component-line-height; // Line height from UI variables
+  margin-left: 10px; // Maintain consistent spacing from adjacent elements
+
+  // Hover state
+  &:hover {
+    background-color: @button-background-color-hover; // Hover state color from UI variables
+    box-shadow: 0 2px 5px fade(@text-color, 20%); // Subtle shadow for depth
+  }
+
+  // Active state
+  &:active {
+    background-color: darken(@button-background-color, 5%); // Darken on click for a tactile feel
+    box-shadow: inset 0 2px 5px fade(@text-color, 20%); // Inward shadow for a pressed effect
+  }
+
+  // Focus state
+  &:focus {
+    outline: none; // Remove default focus outline
+    box-shadow: 0 0 0 2px @background-color-info; // Custom focus style to match Atom's UI
+  }
+}
