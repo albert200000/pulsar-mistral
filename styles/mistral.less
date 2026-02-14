@@ -131,23 +131,21 @@ code {
 }
 
 .mistral-input-container {
-  display: flex;
-  justify-content: space-between; // Adjust this as needed
-  background: @input-background-color; // Make the input container stand out
-  padding: @chat-padding-v;
-  border-top: 1px solid @message-border-color; // Separate messages from input
+  position: relative;
+  border: 1px solid hsl(210, 13.04347826%, 5.10588235%);
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 12px;
 }
 
-
-
 .mistral-input-area {
-  height: 150px; /* Fixed height */
+  height: 100px; /* Fixed height */
   overflow-y: auto; /* Enable vertical scrollbar */
   flex: 1; // Take up available space
-  background: @secondary-background-color; // Ensure visibility
+  background-color: #14171A;
   color: @input-text-color;
   border: 1px solid @input-border-color; // Softer black border
-  padding: @chat-padding-v @chat-padding-h;
+  padding: 5px;
   resize: none; // Remove resize handle
   line-height: @component-line-height;
   min-height: 50px; // Minimum height
