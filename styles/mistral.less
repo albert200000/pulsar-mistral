@@ -78,7 +78,7 @@ code {
   display: flex;
   justify-content: space-between;
   padding: 5px 10px;
-  background: darkslategray;
+  background: @button-background-color;
   border-top-left-radius: @input-border-radius;
   border-top-right-radius: @input-border-radius;
   border-bottom: 1px solid @message-border-color; // Add a border to separate from the code block
@@ -93,7 +93,7 @@ code {
 }
 
 .code-language-label {
-  color: lighten(@text-color, 50%);
+  color: lighten(@text-color, 20%);
   font-size: smaller;
   padding: 2px 0;
   border-radius: 3px 3px 0 0; // Rounded corners for the top bar
@@ -102,14 +102,13 @@ code {
 }
 
 .copy-code-button {
-  // Adjust the button styling
-  background: @button-background-color; // Add a background color to the button
+  background: darken(@button-background-color, 20%);
   color: @text-color;
   border: none;
   padding: 2px 10px;
   cursor: pointer;
   border-radius: 3px;
-  align-self: flex-start; // Align to the start of the flex container
+  align-self: flex-start;
   &:hover {
     background-color: darken(@button-background-color, 10%);
   }
@@ -135,7 +134,6 @@ code {
   height: 100px; /* Fixed height */
   overflow-y: auto; /* Enable vertical scrollbar */
   flex: 1; // Take up available space
-  background-color: #14171A;
   color: @input-text-color;
   border: 1px solid @input-border-color; // Softer black border
   padding: 5px;
