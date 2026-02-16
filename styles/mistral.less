@@ -36,21 +36,16 @@
 
 // Message style
 .chat-message {
-  padding-right: 30px;
   position: relative;
   border: 1px solid @message-border-color;
   margin-bottom: @chat-padding-v; // Add spacing between messages
   padding: @chat-padding-v @chat-padding-h; // Add padding inside the messages
-  padding-left: 60px;
   border-radius: @input-border-radius; // Rounded corners for messages
 
   // Pseudo-element for the sender label
   &::before {
-    content: attr(data-sender) ": ";
-    position: absolute;
-    top: 50%;
-    left: 5px; // Adjust left position to fit within the padding area
-    transform: translateY(-50%);
+    content: attr(data-sender) "";
+    display: block;
     color: @text-color-subtle;
     font-weight: bold;
     min-width: 50px; // Ensure a minimum width for the label
@@ -62,7 +57,7 @@
 pre {
   background: none;
   margin: 0;
-  padding: 0;
+  padding: 5px;
   border: none;
   border-radius: 0;
 }
@@ -83,7 +78,7 @@ code {
   display: flex;
   justify-content: space-between;
   padding: 5px 10px;
-  background: darken(@syntax-background-color, 20%); // Dark background for the copy container
+  background: darkslategray;
   border-top-left-radius: @input-border-radius;
   border-top-right-radius: @input-border-radius;
   border-bottom: 1px solid @message-border-color; // Add a border to separate from the code block
@@ -98,11 +93,9 @@ code {
 }
 
 .code-language-label {
-  // Ensure the language label doesn't overlap the code
-  background: darken(@syntax-background-color, 20%);
   color: lighten(@text-color, 50%);
   font-size: smaller;
-  padding: 2px @chat-padding-h;
+  padding: 2px 0;
   border-radius: 3px 3px 0 0; // Rounded corners for the top bar
   user-select: none;
   align-self: flex-start; // Align to the start of the flex container
@@ -123,11 +116,11 @@ code {
 }
 
 .user-message::before {
-  content: "You: ";
+  content: "You";
 }
 
 .mistral-message::before {
-  content: "mistral: ";
+  content: "Mistral";
 }
 
 .mistral-input-container {
