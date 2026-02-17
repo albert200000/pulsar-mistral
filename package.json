@@ -12,7 +12,7 @@
     "atom-workspace": "mistral:toggle"
   },
   "repository": "https://github.com/albert200000/pulsar-mistral",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
