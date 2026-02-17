@@ -24,133 +24,137 @@
   background-color: @tool-panel-background-color;
   color: @text-color;
   .font-common();
-}
 
-.mistral-messages-container {
-  flex-grow: 1;
-  overflow-y: auto;
-  max-height: calc(100% - 60px); // adjust the max-height accordingly
-  padding: @chat-padding-v @chat-padding-h;
-  background: @syntax-background-color;
-}
+  .input-select {
+    margin: 5px 10px;
+  }
 
-// Message style
-.chat-message {
-  position: relative;
-  border: 1px solid @message-border-color;
-  margin-bottom: @chat-padding-v; // Add spacing between messages
-  padding: @chat-padding-v @chat-padding-h; // Add padding inside the messages
-  border-radius: @input-border-radius; // Rounded corners for messages
+  .mistral-messages-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100% - 60px); // adjust the max-height accordingly
+    padding: @chat-padding-v @chat-padding-h;
+    background: @syntax-background-color;
+  }
 
-  // Pseudo-element for the sender label
-  &::before {
-    content: attr(data-sender) "";
+  // Message style
+  .chat-message {
+    position: relative;
+    border: 1px solid @message-border-color;
+    margin-bottom: @chat-padding-v; // Add spacing between messages
+    padding: @chat-padding-v @chat-padding-h; // Add padding inside the messages
+    border-radius: @input-border-radius; // Rounded corners for messages
+
+    // Pseudo-element for the sender label
+    &::before {
+      content: attr(data-sender) "";
+      display: block;
+      color: @text-color-subtle;
+      font-weight: bold;
+      min-width: 50px; // Ensure a minimum width for the label
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  pre {
+    background: none;
+    margin: 0;
+    padding: 5px;
+    border: none;
+    border-radius: 0;
+  }
+
+  // Style the code tag to ensure it doesn't overlap the copy button or language label
+  code {
     display: block;
-    color: @text-color-subtle;
-    font-weight: bold;
-    min-width: 50px; // Ensure a minimum width for the label
-    pointer-events: none;
+    background: darken(@syntax-background-color, 30%); // Match the code-container background
+    padding: @chat-padding-v @chat-padding-h;
+    margin: 0;
+    border-radius: 0 0 @input-border-radius @input-border-radius; // Rounded corners at the bottom
+    font-family: monospace;
+    white-space: pre;
+    overflow-x: auto;
+  }
+
+  .code-copy-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background: @button-background-color;
+    border-top-left-radius: @input-border-radius;
+    border-top-right-radius: @input-border-radius;
+    border-bottom: 1px solid @message-border-color; // Add a border to separate from the code block
+  }
+
+  .code-container {
+    position: relative;
+    background: darken(@syntax-background-color, 30%); // Ensure this is darker than the chat background
+    border-radius: @input-border-radius;
+    margin-bottom: 10px;
+    padding-top: 1px; // Set padding-top to 1px to account for the top border of the code-copy-container
+  }
+
+  .code-language-label {
+    color: lighten(@text-color, 20%);
+    font-size: smaller;
+    padding: 2px 0;
+    border-radius: 3px 3px 0 0; // Rounded corners for the top bar
     user-select: none;
+    align-self: flex-start; // Align to the start of the flex container
   }
-}
 
-pre {
-  background: none;
-  margin: 0;
-  padding: 5px;
-  border: none;
-  border-radius: 0;
-}
-
-// Style the code tag to ensure it doesn't overlap the copy button or language label
-code {
-  display: block;
-  background: darken(@syntax-background-color, 30%); // Match the code-container background
-  padding: @chat-padding-v @chat-padding-h;
-  margin: 0;
-  border-radius: 0 0 @input-border-radius @input-border-radius; // Rounded corners at the bottom
-  font-family: monospace;
-  white-space: pre;
-  overflow-x: auto;
-}
-
-.code-copy-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 10px;
-  background: @button-background-color;
-  border-top-left-radius: @input-border-radius;
-  border-top-right-radius: @input-border-radius;
-  border-bottom: 1px solid @message-border-color; // Add a border to separate from the code block
-}
-
-.code-container {
-  position: relative;
-  background: darken(@syntax-background-color, 30%); // Ensure this is darker than the chat background
-  border-radius: @input-border-radius;
-  margin-bottom: 10px;
-  padding-top: 1px; // Set padding-top to 1px to account for the top border of the code-copy-container
-}
-
-.code-language-label {
-  color: lighten(@text-color, 20%);
-  font-size: smaller;
-  padding: 2px 0;
-  border-radius: 3px 3px 0 0; // Rounded corners for the top bar
-  user-select: none;
-  align-self: flex-start; // Align to the start of the flex container
-}
-
-.copy-code-button {
-  background: darken(@button-background-color, 20%);
-  color: @text-color;
-  border: none;
-  padding: 2px 10px;
-  cursor: pointer;
-  border-radius: 3px;
-  align-self: flex-start;
-  &:hover {
-    background-color: darken(@button-background-color, 10%);
+  .copy-code-button {
+    background: darken(@button-background-color, 20%);
+    color: @text-color;
+    border: none;
+    padding: 2px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    align-self: flex-start;
+    &:hover {
+      background-color: darken(@button-background-color, 10%);
+    }
   }
-}
 
-.user-message::before {
-  content: "You";
-}
-
-.mistral-message::before {
-  content: "Mistral";
-}
-
-.mistral-input-container {
-  position: relative;
-  border: 1px solid hsl(210, 13.04347826%, 5.10588235%);
-  border-radius: 3px;
-  padding: 10px;
-  font-size: 12px;
-}
-
-.mistral-input-area {
-  height: 100px; /* Fixed height */
-  overflow-y: auto; /* Enable vertical scrollbar */
-  flex: 1; // Take up available space
-  color: @input-text-color;
-  border: 1px solid @input-border-color; // Softer black border
-  padding: 5px;
-  resize: none; // Remove resize handle
-  line-height: @component-line-height;
-  min-height: 50px; // Minimum height
-  border-radius: @input-border-radius; // Rounded corners for input
-  &:focus {
-    border-color: darken(@input-border-color, 10%); // Darken border on focus
+  .user-message::before {
+    content: "You";
   }
-}
 
-.mistral-send-btn {
-  width: 100%;
-  margin-top: 10px;
-}
+  .mistral-message::before {
+    content: "Mistral";
+  }
 
-.mistral-clear-chat-btn {
-  margin: 10px;
+  .mistral-input-container {
+    position: relative;
+    border: 1px solid hsl(210, 13.04347826%, 5.10588235%);
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .mistral-input-area {
+    height: 100px; /* Fixed height */
+    overflow-y: auto; /* Enable vertical scrollbar */
+    flex: 1; // Take up available space
+    color: @input-text-color;
+    border: 1px solid @input-border-color; // Softer black border
+    padding: 5px;
+    resize: none; // Remove resize handle
+    line-height: @component-line-height;
+    min-height: 50px; // Minimum height
+    border-radius: @input-border-radius; // Rounded corners for input
+    &:focus {
+      border-color: darken(@input-border-color, 10%); // Darken border on focus
+    }
+  }
+
+  .mistral-send-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .mistral-clear-chat-btn {
+    margin: 10px;
+  }
 }
