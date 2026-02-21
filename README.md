@@ -13,7 +13,6 @@ Chat with Mistral
 3. Choose model in package settings
 
 ## Things to do
-1. Refactor code
-2. Fix rendering performance
-3. Add selection/file to context   
-4. Apply changes to selection/file
+1. Fix rendering performance
+2. Add selection/file to context   
+3. Apply changes to selection/file
