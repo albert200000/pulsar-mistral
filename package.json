@@ -9,7 +9,10 @@
     "Mistral"
   ],
   "activationCommands": {
-    "atom-workspace": "mistral:toggle"
+    "atom-workspace": [
+      "mistral:toggle",
+      "mistral:add"
+    ]
   },
   "repository": "https://github.com/albert200000/pulsar-mistral",
   "license": "MIT",

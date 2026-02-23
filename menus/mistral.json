@@ -2,8 +2,17 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "Toggle mistral",
-        "command": "mistral:toggle"
+        "label": "Mistral",
+        "submenu": [
+          {
+            "label": "Toggle",
+            "command": "mistral:toggle"
+          },
+          {
+            "label": "Add Code",
+            "command": "mistral:add"
+          }
+        ]
       }
     ]
   },
@@ -12,11 +21,15 @@
       "label": "Packages",
       "submenu": [
         {
-          "label": "mistral",
+          "label": "Mistral",
           "submenu": [
             {
               "label": "Toggle",
               "command": "mistral:toggle"
+            },
+            {
+              "label": "Add Code",
+              "command": "mistral:add"
             }
           ]
         }
