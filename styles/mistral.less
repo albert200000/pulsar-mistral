@@ -25,8 +25,17 @@
   color: @text-color;
   .font-common();
 
-  .input-select {
+  .header {
+    display: flex;
     margin: 5px 10px;
+
+    select {
+      flex: 1;
+    }
+
+    button {
+      margin-left: 15px;
+    }
   }
 
   .mistral-messages-container {
