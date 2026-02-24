@@ -11,7 +11,3 @@ Chat with Mistral
 `export MISTRAL_API_KEY=your_key_here`
 
 3. Choose model in package settings
-
-## Things to do
-1. Add selection/file to context   
-2. Apply changes to selection/file
