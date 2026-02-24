@@ -11,7 +11,8 @@
   "activationCommands": {
     "atom-workspace": [
       "mistral:toggle",
-      "mistral:add"
+      "mistral:add",
+      "mistral:select"
     ]
   },
   "repository": "https://github.com/albert200000/pulsar-mistral",
@@ -21,7 +22,8 @@
   },
   "dependencies": {
     "@mistralai/mistralai": "^1.14.0",
-    "atom-ide-markdown-service": "^2.1.0"
+    "atom-ide-markdown-service": "^2.1.0",
+    "atom-select-list": "^0.8.1"
   },
   "devDependencies": {
     "eslint": "^9.39.2",
