@@ -66,6 +66,17 @@
     }
   }
 
+  /* hide Atom text-editor gutter that shows line numbers */
+  .gutter.gutter-line-number,
+  .line-number {
+    display: none !important;
+  }
+
+  /* expand text area to fill former gutter space */
+  .lines {
+    margin-left: 0 !important;
+  }
+
   pre {
     background: none;
     margin: 0;
