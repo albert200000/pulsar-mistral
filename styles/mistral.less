@@ -67,14 +67,8 @@
   }
 
   /* hide Atom text-editor gutter that shows line numbers */
-  .gutter.gutter-line-number,
-  .line-number {
+  .gutter.line-numbers {
     display: none !important;
-  }
-
-  /* expand text area to fill former gutter space */
-  .lines {
-    margin-left: 0 !important;
   }
 
   pre {
@@ -87,7 +81,6 @@
 
   // Style the code tag to ensure it doesn't overlap the copy button or language label
   code {
-    display: block;
     background: darken(@syntax-background-color, 30%); // Match the code-container background
     padding: 0;
     margin: 0;
@@ -100,7 +93,7 @@
   .code-copy-container {
     display: flex;
     justify-content: space-between;
-    padding: 5px 10px;
+    padding: 4px 10px;
     background: @button-background-color;
     border-top-left-radius: @input-border-radius;
     border-top-right-radius: @input-border-radius;
