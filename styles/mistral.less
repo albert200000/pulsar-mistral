@@ -39,6 +39,7 @@
   }
 
   .mistral-messages-container {
+    position: relative;
     flex-grow: 1;
     overflow-y: auto;
     max-height: calc(100% - 60px); // adjust the max-height accordingly
@@ -64,6 +65,13 @@
       pointer-events: none;
       user-select: none;
     }
+  }
+
+  .messages-loading {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   /* hide Atom text-editor gutter that shows line numbers */
