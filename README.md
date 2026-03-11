@@ -7,7 +7,7 @@ Chat with Mistral
 ## Setup
 1. Obtain Mistral API key: [https://admin.mistral.ai/organization/api-keys](https://admin.mistral.ai/organization/api-keys)
 
-2. Add _MISTRAL_API_KEY_ to your environment variables, e.g append to _~/.profile_:
+2. Add _MISTRAL_API_KEY_ to your environment variables, e.g append to _~/.profile_:   
 `export MISTRAL_API_KEY=your_key_here`
 
 3. Choose model in package settings
