@@ -42,14 +42,12 @@
     position: relative;
     flex-grow: 1;
     overflow-y: auto;
-    max-height: calc(100% - 60px); // adjust the max-height accordingly
     padding: @chat-padding-v @chat-padding-h;
     background: @syntax-background-color;
   }
 
   // Message style
   .chat-message {
-    position: relative;
     border: 1px solid @message-border-color;
     margin-bottom: @chat-padding-v; // Add spacing between messages
     padding: @chat-padding-v @chat-padding-h; // Add padding inside the messages
@@ -68,7 +66,7 @@
   }
 
   .messages-loading {
-    position: absolute;
+    position: sticky;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
@@ -114,7 +112,6 @@
   }
 
   .code-container {
-    position: relative;
     background: darken(@syntax-background-color, 30%); // Ensure this is darker than the chat background
     border-radius: @input-border-radius;
     margin-bottom: 10px;
