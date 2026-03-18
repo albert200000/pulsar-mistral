@@ -23,7 +23,8 @@
   "dependencies": {
     "@mistralai/mistralai": "^1.14.0",
     "atom-ide-markdown-service": "^2.1.0",
-    "atom-select-list": "^0.8.1"
+    "atom-select-list": "^0.8.1",
+    "mithril": "^2.3.8"
   },
   "devDependencies": {
     "eslint": "^9.39.2",
